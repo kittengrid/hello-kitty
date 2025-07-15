@@ -116,6 +116,10 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    importmap-rails (2.1.0)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     io-console (0.8.1)
     irb (1.15.2)
       pp (>= 0.6.0)
@@ -322,6 +326,9 @@ GEM
     thruster (0.1.14-x86_64-darwin)
     thruster (0.1.14-x86_64-linux)
     timeout (0.4.3)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.1.4)
@@ -356,7 +363,8 @@ DEPENDENCIES
   brakeman
   debug
   factory_bot_rails
-  pg
+  importmap-rails
+  pg (= 1.5.9)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
@@ -370,6 +378,7 @@ DEPENDENCIES
   solid_queue
   standard (= 1.50.0)
   thruster
+  turbolinks (~> 5)
   web-console
 
 BUNDLED WITH

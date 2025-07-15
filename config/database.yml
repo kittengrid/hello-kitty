@@ -2,10 +2,10 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  url: <%= ENV.fetch('DATABASE_URL', "postgresql://#{ENV.fetch('DATABASE_USER', 'postgres')}:#{ENV.fetch('DATABASE_PASS', 'postgres')}@#{ENV.fetch('DATABASE_HOST', '0.0.0.0')}") %>
 
 development:
   <<: *default
-  url: <%= ENV.fetch('DATABASE_URL', "postgresql://#{ENV.fetch('DATABASE_USER', 'postgres')}:#{ENV.fetch('DATABASE_PASS', 'postgres')}@#{ENV.fetch('DATABASE_HOST', '0.0.0.0')}") %>
   database:  <%= ENV.fetch('DATABASE_NAME', 'hello_kitty_development') %>
 
 test:

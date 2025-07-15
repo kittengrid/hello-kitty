@@ -2,9 +2,12 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
-
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem "turbolinks", "~> 5"
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
 gem "propshaft"
-gem "pg"
+gem "pg", "1.5.9"
 gem "puma", ">= 5.0"
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
