@@ -24,5 +24,9 @@ module HelloKitty
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.web_console.development_only = false
+
+    if ENV["KITTENGRID_PUBLIC_URL"].present?
+      config.hosts << ENV["KITTENGRID_PUBLIC_URL"].split("/").last
+    end
   end
 end
