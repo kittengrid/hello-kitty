@@ -7,7 +7,7 @@ gem "turbolinks", "~> 5"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 gem "propshaft"
-gem "pg", "1.5.9"
+gem "pg", "1.6.0"
 gem "puma", ">= 5.0"
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
