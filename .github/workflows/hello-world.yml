@@ -1,0 +1,20 @@
+name: hello
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  hello_world_job:
+    name: A job to say hello
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: kittengrid/action@3e433c4f0ba9a9d64204eb95ea6d26221ca41a9e
+        with:
+          milliseconds: 10000
+
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"

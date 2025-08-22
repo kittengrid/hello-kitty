@@ -1,0 +1,39 @@
+name: Preview
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: "postgres"
+          POSTGRES_DB: hello_kitty_development
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4.4
+          bundler-cache: true
+
+      - name: Setup Database
+        env:
+          DATABASE_HOST: localhost
+          DATABASE_PASS: postgres
+        run: bin/rails db:create db:schema:load
+
+      - name: Preview Application
+        uses: kittengrid/action@main
+        env:
+          KITTENGRID_API_KEY: ${{ secrets.KITTENGRID_API_KEY }}
