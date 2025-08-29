@@ -21,6 +21,11 @@ jobs:
           POSTGRES_DB: hello_kitty_development
 
     steps:
+      - name: Terminal
+        uses: kittengrid/actions/terminal@main
+        with:
+          api-key: ${{ secrets.KITTENGRID_API_KEY }}
+
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
         with:
@@ -33,7 +38,10 @@ jobs:
           DATABASE_PASS: postgres
         run: bin/rails db:create db:schema:load
 
-      - name: Preview Application
-        uses: kittengrid/action@main
-        env:
-          KITTENGRID_API_KEY: ${{ secrets.KITTENGRID_API_KEY }}
+      - name: WAIT
+        run: sleep 10000
+
+      # - name: Preview Application
+      #   uses: kittengrid/actions/preview@main
+      #   with:
+      #     api-key: ${{ secrets.KITTENGRID_API_KEY }}
