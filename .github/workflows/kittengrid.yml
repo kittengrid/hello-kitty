@@ -9,7 +9,7 @@ on:
 jobs:
   preview:
     name: Preview
-    runs-on: ubuntu-latest
+    runs-on: [kittengrid-ubuntu-latest]
     services:
       postgres:
         image: postgres:15
@@ -24,7 +24,8 @@ jobs:
       - name: Terminal
         uses: kittengrid/actions/terminal@main
         with:
-          api-key: ${{ secrets.KITTENGRID_API_KEY }}
+          api-key: ${{ secrets.KITTENGRID_MAGEC_API_KEY }}
+          KITTENGRID_API_URL: https://app.magec.kittengrid.com/
 
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
