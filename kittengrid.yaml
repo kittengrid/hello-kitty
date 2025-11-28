@@ -1,0 +1,12 @@
+services:
+  - name: web-server
+    cmd: bin/rails
+    port: 3000
+    healthcheck:
+      path: /
+    args:
+      - server
+      - -b
+      - 0.0.0.0
+      - -p
+      - 3000
